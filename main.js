@@ -18,7 +18,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-const electron = require('electron')
+const electron = require('electron').remote;
 // Module to control application life.
 const app = electron.app
 
@@ -138,3 +138,14 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
+document.addEventListener(“keydown”, event => {
+
+ switch (event.key) {
+   case “Escape”:
+   if (remote.getCurrentWindow().isFullScreen()) {
+     remote.getCurrentWindow().setFullScreen(false);
+   }
+   break;
+ }
+});
