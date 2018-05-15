@@ -39,6 +39,8 @@ import {
 import slideshow from "./slideshow.js";
 
 import webApp from './webapp_server.js';
+var fs = require('fs');
+require('dotenv').load();
 
 camera.initialize(function( res, msg, err) {
   if (!res) {
@@ -53,7 +55,7 @@ camera.initialize(function( res, msg, err) {
 /*
  * Trigger photo when clicking / touching anywhere at the screen
  */
-$( "body" ).click(function() {
+$( ".take-picture" ).click(function() {
   trigger();
 });
 
@@ -123,7 +125,18 @@ function trigger() {
               webApp.sendNewPhoto(message2);  // send image to connected web clients
 
 
-              slideshow.start();
+             var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
+
+             fs.readFile(message1, function(err, data) {
+             dbx.filesUpload({path: '/herman60/' + message2, contents: data})
+              .then(function(response) {
+               console.log(response);
+             })
+              .catch(function(error) {
+               console.error(error);
+             });
+
+            })
 
             } else {
 

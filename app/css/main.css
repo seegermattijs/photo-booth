@@ -19,7 +19,7 @@
  */
 
 html{
-    overflow: hidden;
+    /*overflow: hidden;*/
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -28,6 +28,7 @@ html{
 
 body {
 	overflow: hidden;
+    overflow-y: auto;
 	width: 100vw;
 	margin: 0;
 	color: white;
@@ -87,7 +88,7 @@ button {
 	display: block;
     width: 100%;
     padding: 1.5vw;
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.8);
     font-size: 2em;
 }
 

@@ -84,7 +84,7 @@ class Prompt {
 class SpinnerPrompt extends Prompt {
 
 	constructor() {
-		super('<div class="loading"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></div>', -1);
+		super('<div class="loading"><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></div>', -1);
 	}
 
 }
