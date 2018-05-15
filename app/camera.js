@@ -89,7 +89,7 @@ class Camera {
 		const maxImageSize = utils.getConfig().maxImageSize ? utils.getConfig().maxImageSize : 1500;
 		const keep = utils.getConfig().gphoto2.keep === true ?  true : false;
 
-		self.camera.takePicture({ download: true, keep: keep }, function (err, data) {
+		self.camera.takePicture({ download: true, keep: keep}, function (err, data) {
 
 			if (err) {
 				self.camera = undefined;	// needs to be reinitialized

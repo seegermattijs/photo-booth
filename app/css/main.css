@@ -87,15 +87,33 @@ button {
 	display: block;
     width: 100%;
     padding: 1.5vw;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,1);
 }
 
 #front > * p {
     padding: 0;
-    margin-top: 1.5vw;
     margin-bottom: 0;
 }
-
+.take-picture {
+    position: absolute; 
+    right: 40px;
+    top: 40px;
+    background-color: #f0c80f;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px 40px; 
+}
+.take-picture:focus {
+    outline: none;
+}
+.take-picture i {
+    font-size: 14px;
+    padding-right: 10px;
+}
 #collage {
     margin: 0;
     padding: 0.5vw;
@@ -132,7 +150,7 @@ button {
     z-index: 1000;
     display: none;
 
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.4);
     background-size: cover;
     background-repeat: no-repeat;
 
