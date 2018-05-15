@@ -36,21 +36,23 @@
   ],
   "preferGlobal": true,
   "devDependencies": {
-    "electron": "1.7.9",
+    "electron": "^1.8.6",
     "electron-compilers": "^5.9.0"
   },
   "dependencies": {
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "bootstrap": "^4.0.0",
+    "dropbox": "^4.0.4",
     "electron-compile": "^6.4.2",
     "electron-rebuild": "^1.7.3",
     "express": "^4.16.3",
+    "flickr-oauth-and-upload": "^0.8.0",
     "gphoto2": "^0.3.0",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.1",
     "rpi-gpio": "^0.9.1",
     "sharp": "^0.20.1",
-    "socket.io": "^1.7.0"
+    "socket.io": "^2.1.0"
   }
 }

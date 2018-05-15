@@ -22,6 +22,8 @@ import sharp from 'sharp';
 import gphoto2 from 'gphoto2';
 
 import utils from "./utils.js";
+var Dropbox = require('dropbox').Dropbox;
+
 
 class Camera {
 
@@ -84,6 +86,7 @@ class Camera {
 			return;
 		}
 
+
 		const filepath = utils.getPhotosDirectory() + "img_" + utils.getTimestamp() + ".jpg";
 		const webFilepath = utils.getWebAppPhotosDirectory() + "img_" + utils.getTimestamp() + ".jpg";
 		const maxImageSize = utils.getConfig().maxImageSize ? utils.getConfig().maxImageSize : 1500;
@@ -107,6 +110,21 @@ class Camera {
 					callback(0, filepath, webFilepath);
 				}
 			});
+
+
+			var Dropbox = require('dropbox').Dropbox;
+			var dbx = new Dropbox.Dropbox({ accessToken: r5whjrc6e6zcetv });
+
+			dbx.filesUpload({path: '/hallo' + file.name, contents: data})
+			.then(function(response) {
+			           var results = document.getElementById('results');
+			           results.appendChild(document.createTextNode('File uploaded!'));
+			           console.log(response);
+			         })
+			         .catch(function(error) {
+			           console.error(error);
+			         });
+
 
 		});
 

@@ -88,16 +88,24 @@ button {
     width: 100%;
     padding: 1.5vw;
     background-color: rgba(0,0,0,1);
+    font-size: 2em;
 }
 
 #front > * p {
     padding: 0;
     margin-bottom: 0;
+    font-size: 0.6em;
+    color: #8e8e8e;
+}
+#front span {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
 }
 .take-picture {
     position: absolute; 
     right: 40px;
-    top: 40px;
+    top: 27px;
     background-color: #f0c80f;
     color: white;
     border-radius: 50px;
