@@ -90,6 +90,8 @@ button {
     padding: 1.5vw;
     background-color: rgba(0,0,0,0.8);
     font-size: 2em;
+    position: relative;
+    top: 5px;
 }
 
 #front > * p {
@@ -98,22 +100,20 @@ button {
     font-size: 0.6em;
     color: #8e8e8e;
     position: relative;
-    top: -5px;
+    top: -8px;
 }
 #front span {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: bold;
-    position: relative;
-    top: 5px;
+
 }
 .qr {
-    width: 90px!important;
+    width: 60px!important;
     position: absolute!important;
-    left: 5px;
-    bottom: 5px;
+    left: 20px;
+    bottom: 25px;
     z-index: 1;
-    background-color: none!important;
     background: none!important;
 }
 .take-picture {
