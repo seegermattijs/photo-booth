@@ -42,7 +42,6 @@ class Prompt {
 			self.active = true;
 			$(self.container).html(self.html);
 			$(self.container).fadeIn(250);
-			console.log('duration', self.duration);
 			if (self.duration >= 0 ) {
 				self.timeout = setTimeout(function(){ 
 					self.stop(stay, instant, callback);

@@ -108,19 +108,20 @@ function trigger() {
         const message2 = msg2
 
         prompt.stop(true, false, function() { // stop spinner if image is ready
-
+            var didClick = false;
             if (res == 0) {
               // after that show preview
               const previewDuration = 8;
               prompt = new PreviewPrompt(message1, previewDuration).start(false, false, function() {
                 // end photo task after preview ended
                 executing = false;
-                saveImage();
+                if(!didClick) saveImage();
               });
 
               $('.save-buttons').fadeIn(250);
               $( ".save" ).click(function() {
                 saveImage();
+                didClick = true;
               });
               $( ".cancel" ).click(function() {
                   cancel(message1);
