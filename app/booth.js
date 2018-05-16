@@ -58,7 +58,12 @@ camera.initialize(function( res, msg, err) {
 $( ".take-picture" ).click(function() {
   trigger();
 });
-
+$( ".save" ).click(function() {
+  saveImage();
+});
+$( ".cancel" ).click(function() {
+  cancel();
+});
 
 /* Listen for pushbutton on GPIO 3 (PIN 5)
  * Activate the use of GPIOs by setting useGPIO in config.json to true.
@@ -111,32 +116,36 @@ function trigger() {
         prompt.stop(true, false, function() { // stop spinner if image is ready
 
             if (res == 0) {
-              const previewDuration = 8;
+              const previewDuration = 15;
+              $('.save-buttons').fadeIn(250);
               // after that show preview
               prompt = new PreviewPrompt(message1, previewDuration).start(false, false, function() {
                 // end photo task after preview ended
+                saveImage();
                 executing = false;
               });
 
-              setTimeout(function() {
+              function saveImage() {
+                // setTimeout(function() {
+                // }, 1500);
+
                 utils.prependImage(message1);     // add image to collage
-              }, 1500);
-
-              webApp.sendNewPhoto(message2);  // send image to connected web clients
+                webApp.sendNewPhoto(message2);  // send image to connected web clients
 
 
-             var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
+                var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
 
-             fs.readFile(message1, function(err, data) {
-             dbx.filesUpload({path: '/herman60/' + message2, contents: data})
-              .then(function(response) {
-               console.log(response);
-             })
-              .catch(function(error) {
-               console.error(error);
-             });
+                fs.readFile(message1, function(err, data) {
+                 dbx.filesUpload({path: '/herman60/' + message2, contents: data})
+                 .then(function(response) {
+                   console.log(response);
+                 })
+                 .catch(function(error) {
+                   console.error(error);
+                 });
 
-            })
+               })
+              }
 
             } else {
 
@@ -181,7 +190,9 @@ function trigger() {
   }
   
 }
-
+function cancel() {
+  $('.save-buttons').fadeOut(250);
+}
 /*
  * Module exports
  */
