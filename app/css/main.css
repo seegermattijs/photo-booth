@@ -27,7 +27,7 @@ html{
 }
 
 body {
-	overflow: hidden;
+	overflow-x: hidden;
     overflow-y: auto;
 	width: 100vw;
 	margin: 0;
@@ -108,7 +108,7 @@ button {
 
 }
 .save-buttons {
-    /*display: none;*/
+    display: none;
     z-index: 999999;
 }
 

@@ -8,10 +8,10 @@
 		"grayscaleMode": false,
 		"preventScreensaver": true
 	},
-	"maxImageSize": "1500",
+	"maxImageSize": "1700",
 	"countdownLength": 3,
 	"slideshow": {
-		"enabled": true,
+		"enabled": false,
 		"activatesAfterSeconds": 30,
 		"secondsPerImages": 8
 	},

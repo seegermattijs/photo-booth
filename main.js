@@ -51,11 +51,6 @@ if (showDevTools) {
 
 
 
-
-
-
-
-
 function createWindow () {
 
   var fullscreen = config.init.fullscreen !== undefined ? config.init.fullscreen:true;

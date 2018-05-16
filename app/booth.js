@@ -59,10 +59,6 @@ $( ".take-picture" ).click(function() {
   trigger();
 });
 
-$( ".cancel" ).click(function() {
-  cancel();
-});
-
 /* Listen for pushbutton on GPIO 3 (PIN 5)
  * Activate the use of GPIOs by setting useGPIO in config.json to true.
  */
@@ -100,7 +96,7 @@ function trigger() {
       // wait a sec for spinner to start
       setTimeout(function() {
         prompt.start(true, false);
-      }, 1500);
+      }, 500);
     });
 
     // take picture after countdown
@@ -114,25 +110,26 @@ function trigger() {
         prompt.stop(true, false, function() { // stop spinner if image is ready
 
             if (res == 0) {
-              const previewDuration = 15;
+              // after that show preview
+              const previewDuration = 40;
+              prompt = new PreviewPrompt(message1, previewDuration).start(false, false, function() {
+                // end photo task after preview ended
+                executing = false;
+                cancel();
+
+              });
+
               $('.save-buttons').fadeIn(250);
               $( ".save" ).click(function() {
                 saveImage();
               });
-              // after that show preview
-              prompt = new PreviewPrompt(message1, previewDuration).start(false, false, function() {
-                // end photo task after preview ended
-                saveImage();
-                executing = false;
+              $( ".cancel" ).click(function() {
+                  cancel(message1);
               });
 
               function saveImage() { 
                 // setTimeout(function() {
                 // }, 1500);
-
-                utils.prependImage(message1);     // add image to collage
-                webApp.sendNewPhoto(message2);  // send image to connected web clients
-
 
                 var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
 
@@ -146,8 +143,10 @@ function trigger() {
                  });
 
                })
-              $('.save-buttons').fadeOut(250);
-              console.log('fadeout');
+                utils.prependImage(message1);     // add image to collage
+                webApp.sendNewPhoto(message2);  // send image to connected web clients
+                $('.save-buttons').fadeOut(250);
+                $('#prompt').fadeOut(250);
 
               }
 
@@ -194,8 +193,12 @@ function trigger() {
   }
   
 }
-function cancel() {
+function cancel(img) {
   $('.save-buttons').fadeOut(250);
+  $('#prompt').fadeOut(250);
+  fs.unlink(img,function(err, data) {
+    console.log('deleted '+img);
+  });
 }
 /*
  * Module exports
