@@ -3,7 +3,7 @@
 		"fullscreen": false,
 		"width": 1440,
 		"height": 900,
-		"showDevTools": false,
+		"showDevTools": true,
 		"useGPIO": false,
 		"grayscaleMode": false,
 		"preventScreensaver": true
@@ -27,7 +27,7 @@
 	},
 	"branding": {
 		"type": "text",
-		"content": "<div style='padding-left: 40px;'></i> <b><span>Herman 60</span></b> photo-booth<br /><p>Foto's kunnen bekeken worden op <b>bit.ly/herman60</b></p><button class='take-picture'><i class='fa fa-camera'></i>Neem een foto</button></div>",
+		"content": "<img src='img/qr.png' alt='qr code' class='qr'><div style='padding-left: 90px;'></i> <b><span>Herman 60</span></b> photo-booth<br /><p>Foto's kunnen bekeken worden op <b>bit.ly/herman60</b></p><button class='take-picture'><i class='fa fa-camera'></i>Neem een foto</button></div>",
 		"position": "bottomleft"
 	}
 }

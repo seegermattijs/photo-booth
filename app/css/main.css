@@ -97,11 +97,24 @@ button {
     margin-bottom: 0;
     font-size: 0.6em;
     color: #8e8e8e;
+    position: relative;
+    top: -5px;
 }
 #front span {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: bold;
+    position: relative;
+    top: 5px;
+}
+.qr {
+    width: 90px!important;
+    position: absolute!important;
+    left: 5px;
+    bottom: 5px;
+    z-index: 1;
+    background-color: none!important;
+    background: none!important;
 }
 .take-picture {
     position: absolute; 
