@@ -58,9 +58,7 @@ camera.initialize(function( res, msg, err) {
 $( ".take-picture" ).click(function() {
   trigger();
 });
-$( ".save" ).click(function() {
-  saveImage();
-});
+
 $( ".cancel" ).click(function() {
   cancel();
 });
@@ -118,6 +116,9 @@ function trigger() {
             if (res == 0) {
               const previewDuration = 15;
               $('.save-buttons').fadeIn(250);
+              $( ".save" ).click(function() {
+                saveImage();
+              });
               // after that show preview
               prompt = new PreviewPrompt(message1, previewDuration).start(false, false, function() {
                 // end photo task after preview ended
@@ -125,7 +126,7 @@ function trigger() {
                 executing = false;
               });
 
-              function saveImage() {
+              function saveImage() { 
                 // setTimeout(function() {
                 // }, 1500);
 
@@ -145,6 +146,9 @@ function trigger() {
                  });
 
                })
+              $('.save-buttons').fadeOut(250);
+              console.log('fadeout');
+
               }
 
             } else {

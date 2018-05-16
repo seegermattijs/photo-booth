@@ -68,7 +68,7 @@ function createWindow () {
   } catch (err) {
     width = 800;
     height = 600;
-    console.log('loading width and height from config.json failed, fallback to 1440x900 \n'+err)
+    console.log('loading width and height from config.json failed, fall@ack to 1440x900 \n'+err)
   }
 
   var windowSettings = {

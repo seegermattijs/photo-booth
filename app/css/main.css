@@ -108,8 +108,10 @@ button {
 
 }
 .save-buttons {
-    display: none;
+    /*display: none;*/
+    z-index: 999999;
 }
+
 .save-buttons .cta {
     float: right;
     margin: 20px;
@@ -131,7 +133,7 @@ button {
     right: 40px;
     top: 27px;
 }
-.take-picture:focus {
+.cta:focus {
     outline: none;
 }
 .cta {
