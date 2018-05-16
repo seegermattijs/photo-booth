@@ -8,7 +8,7 @@
 		"grayscaleMode": false,
 		"preventScreensaver": true
 	},
-	"maxImageSize": "1700",
+	"maxImageSize": "1550",
 	"countdownLength": 3,
 	"slideshow": {
 		"enabled": false,
@@ -17,7 +17,7 @@
 	},
 	"gphoto2": {
 		"capturetarget": 1,
-		"keep": true
+		"keep": false
 	},
 	"content_dir": "../content",
 	"webapp": {

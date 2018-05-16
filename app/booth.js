@@ -111,12 +111,11 @@ function trigger() {
 
             if (res == 0) {
               // after that show preview
-              const previewDuration = 40;
+              const previewDuration = 8;
               prompt = new PreviewPrompt(message1, previewDuration).start(false, false, function() {
                 // end photo task after preview ended
                 executing = false;
-                cancel();
-
+                saveImage();
               });
 
               $('.save-buttons').fadeIn(250);
@@ -128,8 +127,6 @@ function trigger() {
               });
 
               function saveImage() { 
-                // setTimeout(function() {
-                // }, 1500);
 
                 var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
 
@@ -143,11 +140,13 @@ function trigger() {
                  });
 
                })
-                utils.prependImage(message1);     // add image to collage
                 webApp.sendNewPhoto(message2);  // send image to connected web clients
+                setTimeout(function() {
+                  utils.prependImage(message1);     // add image to collage
+                }, 1500);
                 $('.save-buttons').fadeOut(250);
                 $('#prompt').fadeOut(250);
-
+                $( ".save" ).off('click');
               }
 
             } else {
@@ -194,11 +193,11 @@ function trigger() {
   
 }
 function cancel(img) {
-  $('.save-buttons').fadeOut(250);
-  $('#prompt').fadeOut(250);
   fs.unlink(img,function(err, data) {
     console.log('deleted '+img);
   });
+  $('.save-buttons').fadeOut(250);
+  $('#prompt').fadeOut(250);
 }
 /*
  * Module exports
