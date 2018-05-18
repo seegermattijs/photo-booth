@@ -132,6 +132,7 @@ function trigger() {
 
               function saveImage() { 
                 if (!didCancel) {
+                  console.log('saving');
                   var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
 
                   fs.readFile(message1, function(err, data) {

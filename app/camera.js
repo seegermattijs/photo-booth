@@ -99,7 +99,6 @@ class Camera {
 				callback(-2, 'connection to camera failed', err);
 				return;
 			} 
-			console.log(process.cwd());
 			sharp(data) // resize image to given maxSize
 				.resize(Number(maxImageSize)) // scale width to 1500
 				.overlayWith(process.cwd() + '/app/img/frame.png', { gravity: sharp.gravity.centre })
