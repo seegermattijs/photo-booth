@@ -101,18 +101,17 @@ function trigger() {
 
     // take picture after countdown
     setTimeout(function() {
-
       camera.takePicture(function(res, msg1, msg2) {
-
+        var timer;
         const message1 = msg1;
         const message2 = msg2
-
         prompt.stop(true, false, function() { // stop spinner if image is ready
             var didClick = false;
             var didCancel = false;
             if (res == 0) {
               // after that show preview
-              const previewDuration = 8;
+              const previewDuration = 10;
+              timer = previewDuration-1;
               prompt = new PreviewPrompt(message1, previewDuration).start(false, false, function() {
                 // end photo task after preview ended
                 executing = false;
@@ -121,6 +120,18 @@ function trigger() {
               });
 
               $('.save-buttons').fadeIn(250);
+
+              function message() {
+                console.log(timer);
+                if(timer === 0) {
+                  clearInterval(timerFunc);
+                } else {
+                  $('.save-buttons').find('span').text(timer);
+                  timer--;
+                }
+              }
+              var timerFunc = setInterval(function() { message(timer); }, 1000);
+
               $( ".save" ).click(function() {
                 didClick = true;
                 return saveImage();
