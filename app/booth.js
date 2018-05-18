@@ -116,12 +116,13 @@ function trigger() {
                 // end photo task after preview ended
                 executing = false;
                 if(!didClick) saveImage();
+                else cancel();
               });
 
               $('.save-buttons').fadeIn(250);
               $( ".save" ).click(function() {
-                saveImage();
                 didClick = true;
+                saveImage();
               });
               $( ".cancel" ).click(function() {
                   cancel(message1);
@@ -138,7 +139,7 @@ function trigger() {
                  })
                  .catch(function(error) {
                    console.error(error);
-                 });
+                 }); 
 
                })
                 webApp.sendNewPhoto(message2);  // send image to connected web clients
