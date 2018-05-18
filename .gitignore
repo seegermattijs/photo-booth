@@ -9,8 +9,6 @@ coverimage.png
 *.jpeg
 *.JPG
 *.JPEG
-*.png
-*.PNG
 email-addresses.txt
 .DS_Store
 content/*
