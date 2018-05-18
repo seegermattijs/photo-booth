@@ -131,8 +131,7 @@ function trigger() {
               });
 
               function saveImage() { 
-                if (!didCancel) {
-                  console.log('saving');
+                if(!didCancel) {
                   var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
 
                   fs.readFile(message1, function(err, data) {
@@ -143,6 +142,8 @@ function trigger() {
                    .catch(function(error) {
                      console.error(error);
                    }); 
+
+                 })
                   webApp.sendNewPhoto(message2);  // send image to connected web clients
                   setTimeout(function() {
                     utils.prependImage(message1);     // add image to collage
@@ -151,8 +152,7 @@ function trigger() {
                   $('#prompt').fadeOut(250);
                   $( ".save" ).off('click');
                 }
-              })
-            }
+              }
 
             } else {
 
