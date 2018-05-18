@@ -116,16 +116,16 @@ function trigger() {
                 // end photo task after preview ended
                 executing = false;
                 if(!didClick) saveImage();
-                else cancel();
+                else return cancel();
               });
 
               $('.save-buttons').fadeIn(250);
               $( ".save" ).click(function() {
                 didClick = true;
-                saveImage();
+                return saveImage();
               });
               $( ".cancel" ).click(function() {
-                  cancel(message1);
+                return cancel(message1);
               });
 
               function saveImage() { 
