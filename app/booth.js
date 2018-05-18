@@ -109,6 +109,7 @@ function trigger() {
 
         prompt.stop(true, false, function() { // stop spinner if image is ready
             var didClick = false;
+            var didCancel = false;
             if (res == 0) {
               // after that show preview
               const previewDuration = 8;
@@ -125,31 +126,32 @@ function trigger() {
                 return saveImage();
               });
               $( ".cancel" ).click(function() {
+                didCancel=true;
                 return cancel(message1);
-                prompt.stop(false, true);
               });
 
               function saveImage() { 
-                var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
+                if (!didCancel) {
+                  var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
 
-                fs.readFile(message1, function(err, data) {
-                 dbx.filesUpload({path: '/herman60/' + message2, contents: data})
-                 .then(function(response) {
-                   console.log(response);
-                 })
-                 .catch(function(error) {
-                   console.error(error);
-                 }); 
-
-               })
-                webApp.sendNewPhoto(message2);  // send image to connected web clients
-                setTimeout(function() {
-                  utils.prependImage(message1);     // add image to collage
-                }, 1500);
-                $('.save-buttons').fadeOut(250);
-                $('#prompt').fadeOut(250);
-                $( ".save" ).off('click');
-              }
+                  fs.readFile(message1, function(err, data) {
+                   dbx.filesUpload({path: '/herman60/' + message2, contents: data})
+                   .then(function(response) {
+                     console.log(response);
+                   })
+                   .catch(function(error) {
+                     console.error(error);
+                   }); 
+                  webApp.sendNewPhoto(message2);  // send image to connected web clients
+                  setTimeout(function() {
+                    utils.prependImage(message1);     // add image to collage
+                  }, 1500);
+                  $('.save-buttons').fadeOut(250);
+                  $('#prompt').fadeOut(250);
+                  $( ".save" ).off('click');
+                }
+              })
+            }
 
             } else {
 
