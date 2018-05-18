@@ -126,10 +126,10 @@ function trigger() {
               });
               $( ".cancel" ).click(function() {
                 return cancel(message1);
+                prompt.stop(false, true);
               });
 
               function saveImage() { 
-
                 var dbx = new Dropbox.Dropbox({ accessToken: process.env.TOKEN });
 
                 fs.readFile(message1, function(err, data) {
