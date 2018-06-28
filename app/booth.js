@@ -38,7 +38,7 @@ import {
 } from "./prompt.js";
 import slideshow from "./slideshow.js";
 
-import webApp from './webapp_server.js';
+// import webApp from './webapp_server.js';
 var fs = require('fs');
 require('dotenv').load();
 
@@ -116,7 +116,7 @@ function trigger() {
                 // end photo task after preview ended
                 executing = false;
                 if(!didClick) saveImage();
-                else return cancel();
+                // else return cancel();
               });
 
               $('.save-buttons').fadeIn(250);
@@ -125,7 +125,11 @@ function trigger() {
                 console.log(timer);
                 if(timer === 0) {
                   clearInterval(timerFunc);
-                } else {
+                } 
+                else if(didCancel) {
+                  clearInterval(timerFunc);
+                }
+                else {
                   $('.save-buttons').find('span').text(timer);
                   timer--;
                 }
@@ -153,12 +157,13 @@ function trigger() {
                    .catch(function(error) {
                      console.error(error);
                    }); 
+                  clearInterval(timerFunc);
 
                  })
-                  webApp.sendNewPhoto(message2);  // send image to connected web clients
+                  // webApp.sendNewPhoto(message2);  // send image to connected web clients
                   setTimeout(function() {
                     utils.prependImage(message1);     // add image to collage
-                  }, 1500);
+                  }, 500);
                   $('.save-buttons').fadeOut(250);
                   $('#prompt').fadeOut(250);
                   $( ".save" ).off('click');

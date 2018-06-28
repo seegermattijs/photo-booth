@@ -100,8 +100,8 @@ class Camera {
 				return;
 			} 
 			sharp(data) // resize image to given maxSize
-				.resize(Number(maxImageSize)) // scale width to 1500
-				.overlayWith(process.cwd() + '/app/img/frame.png', { gravity: sharp.gravity.centre })
+				.resize(Number(maxImageSize)) // scale width to 1200
+				// .overlayWith(process.cwd() + '/app/img/frame.png', { gravity: sharp.gravity.centre })
 				.toFile(filepath, function(err) {
 				if (err) {
 					callback(-3, 'resizing image failed', err)
