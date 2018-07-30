@@ -19,6 +19,7 @@
  */
 
 //'use strict';
+$('body').fadeIn();
 import 'util';
 
 import $ from 'jquery';
@@ -56,6 +57,7 @@ camera.initialize(function( res, msg, err) {
  * Trigger photo when clicking / touching anywhere at the screen
  */
 $( ".take-picture" ).click(function() {
+  window.scroll(0, 0);
   trigger();
 });
 
@@ -168,6 +170,7 @@ function trigger() {
                   $('#prompt').fadeOut(250);
                   $( ".save" ).off('click');
                 }
+                location.reload();
               }
 
             } else {
@@ -219,6 +222,7 @@ function cancel(img) {
   });
   $('.save-buttons').fadeOut(250);
   $('#prompt').fadeOut(250);
+  location.reload();
 }
 /*
  * Module exports

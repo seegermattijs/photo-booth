@@ -87,7 +87,7 @@ button {
 	position:absolute;
 	display: block;
     width: 100%;
-    padding: 1.5vw;
+    padding: 2.5vw;
     background-color: rgba(0,0,0,0.8);
     font-size: 2em;
     bottom: 0;
@@ -96,7 +96,7 @@ button {
 #front > * p {
     padding: 0;
     margin-bottom: 0;
-    font-size: 0.6em;
+    font-size: 0.9em;
     color: #8e8e8e;
     position: relative;
     top: -8px;
@@ -114,7 +114,7 @@ button {
     margin: 0 auto;
     text-align: center;
     padding-top: 30px;
-    font-size: 22px;
+    font-size: 28px;
     z-index: 1;
 }
 .message span {
@@ -134,9 +134,10 @@ button {
 .cta.cancel {
     background: none!important;
     float: left;
+    box-shadow: none;
 }
 .qr {
-    width: 60px!important;
+    width: 120px!important;
     position: absolute!important;
     left: 20px;
     bottom: 31px;
@@ -152,17 +153,31 @@ button {
     outline: none;
 }
 .cta {
-    background-color: #f0c80f;
+    background-color: #56a73c;
+    box-shadow: 0px 5px #43862e;
     color: white;
     border-radius: 50px;
     border: none;
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 15px 40px; 
+    padding: 25px 50px; 
+    transition: all 0.1s ease-in-out;
+    margin-top: 0;
+}
+.cta:focus {
+    box-shadow: 0 0 #43862e;
+    margin-top: 5px;
+}
+.save-buttons .cta {
+    position: relative;
+}
+.save-buttons .cta:focus {
+    margin-top: 20px;
+    top: 5px;
 }
 .cta i {
-    font-size: 14px;
+    font-size: 17px;
     padding-right: 10px;
 }
 #collage {
