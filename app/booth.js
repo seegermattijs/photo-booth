@@ -229,7 +229,7 @@ function cancel(img) {
   });
   $('.save-buttons').fadeOut(250);
   $('#prompt').fadeOut(250);
-  location.reload();
+  // location.reload();
 }
 /*
  * Module exports
