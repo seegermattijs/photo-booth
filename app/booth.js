@@ -173,10 +173,7 @@ function trigger() {
                   $('#prompt').fadeOut(250);
                   $( ".save" ).off('click');
                 }
-                setTimeout(function() {
-                  location.reload();
-                }, 200);
-                
+                return false();
               }
 
             } else {
