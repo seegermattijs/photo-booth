@@ -158,7 +158,7 @@ button {
     color: white;
     border-radius: 50px;
     border: none;
-    font-size: 50px;
+    font-size: 40px;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 25px 50px; 
@@ -177,7 +177,7 @@ button {
     top: 5px;
 }
 .cta i {
-    font-size: 17px;
+    font-size: 45px;
     padding-right: 10px;
 }
 #collage {

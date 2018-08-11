@@ -56,7 +56,8 @@ camera.initialize(function( res, msg, err) {
 /*
  * Trigger photo when clicking / touching anywhere at the screen
  */
-$( ".take-picture" ).click(function() {
+var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
+$(".take-picture").on(clickEventType, function() {
   window.scroll(0, 0);
   trigger();
 });
@@ -138,11 +139,13 @@ function trigger() {
               }
               var timerFunc = setInterval(function() { message(timer); }, 1000);
 
-              $( ".save" ).click(function() {
+              var clickEventType2 = document.ontouchstart !== null ? "click" : "touchstart";
+              $(".save").on(clickEventType2, function() {
                 didClick = true;
                 return saveImage();
               });
-              $( ".cancel" ).click(function() {
+              var clickEventType3 = document.ontouchstart !== null ? "click" : "touchstart";
+              $(".cancel").on(clickEventType3, function() {
                 didCancel=true;
                 return cancel(message1);
               });
@@ -170,7 +173,7 @@ function trigger() {
                   $('#prompt').fadeOut(250);
                   $( ".save" ).off('click');
                 }
-                location.reload();
+                // location.reload();
               }
 
             } else {
@@ -228,27 +231,3 @@ function cancel(img) {
  * Module exports
  */
 module.exports.triggerPhoto = trigger;
-
-
-function minimizeWindow () {
-  mainWindow.setFullScreen(false);
-  console.log(mainWindow);
-}
-
-app.on('ready', function() {
-
-const ret = electron.globalShortcut.register('Escape', function(){
-  console.log('Escape is pressed');
-
-      minimizeWindow();
-});
-
-console.log(electron.globalShortcut.isRegistered('Escape'));
-});
-
-app.on('will-quit', function(){
-
-electron.globalShortcut.unregister('Escape');
-
-electron.globalShortcut.unregisterAll();
-});
