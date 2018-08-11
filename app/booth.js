@@ -103,7 +103,7 @@ function trigger() {
     });
 
     // take picture after countdown
-    setTimeout(function() {
+    var cameraTimeout = setTimeout(function() {
       camera.takePicture(function(res, msg1, msg2) {
         var timer;
         const message1 = msg1;
@@ -129,7 +129,7 @@ function trigger() {
                 if(timer === 0) {
                   clearInterval(timerFunc);
                 } 
-                else if(didCancel) {
+                else if(didCancel || didClick) {
                   clearInterval(timerFunc);
                 }
                 else {
@@ -143,6 +143,7 @@ function trigger() {
               $(".save").off(clickEventType).on(clickEventType, function() {
                 didClick = true;
                 clearInterval(timerFunc);
+                clearTimeout(cameraTimeout);
                 return saveImage();
               });
               var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
