@@ -105,6 +105,7 @@ function trigger() {
     // take picture after countdown
     var cameraTimeout = setTimeout(function() {
       camera.takePicture(function(res, msg1, msg2) {
+        consol.log('hallokes');
         var timer;
         const message1 = msg1;
         const message2 = msg2
