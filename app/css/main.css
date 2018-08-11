@@ -264,6 +264,10 @@ button {
 	animation: fadein 0.5s;
 	animation-timing-function: ease-in;
 }
+#prompt #preview img {
+    max-height: 100vh;
+    width: auto;
+}
 
 #prompt.fadeout {
 	animation: fadeout 0.5s;
