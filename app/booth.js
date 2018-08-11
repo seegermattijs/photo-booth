@@ -59,6 +59,7 @@ camera.initialize(function( res, msg, err) {
 var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
 $(".take-picture").off(clickEventType).on(clickEventType, function() {
   window.scroll(0, 0);
+  console.log('ok');
   trigger();
 });
 
