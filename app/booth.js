@@ -228,3 +228,27 @@ function cancel(img) {
  * Module exports
  */
 module.exports.triggerPhoto = trigger;
+
+
+function minimizeWindow () {
+  mainWindow.setFullScreen(false);
+  console.log(mainWindow);
+}
+
+app.on('ready', function() {
+
+const ret = electron.globalShortcut.register('Escape', function(){
+  console.log('Escape is pressed');
+
+      minimizeWindow();
+});
+
+console.log(electron.globalShortcut.isRegistered('Escape'));
+});
+
+app.on('will-quit', function(){
+
+electron.globalShortcut.unregister('Escape');
+
+electron.globalShortcut.unregisterAll();
+});
