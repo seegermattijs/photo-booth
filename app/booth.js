@@ -119,7 +119,7 @@ function trigger() {
               prompt = new PreviewPrompt(message1, previewDuration).start(false, false, function() {
                 // end photo task after preview ended
                 executing = false;
-                if(!didClick) saveImage();
+                if(!didClick) return saveImage();
                 // else return cancel();
               });
 
