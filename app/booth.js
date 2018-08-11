@@ -173,7 +173,7 @@ function trigger() {
                   $('#prompt').fadeOut(250);
                   $( ".save" ).off('click');
                 }
-                executing=false;
+                // executing=false;
               }
 
             } else {
