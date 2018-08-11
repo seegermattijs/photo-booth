@@ -57,7 +57,7 @@ camera.initialize(function( res, msg, err) {
  * Trigger photo when clicking / touching anywhere at the screen
  */
 var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
-$(".take-picture").on(clickEventType, function() {
+$(".take-picture").one(clickEventType, function() {
   window.scroll(0, 0);
   trigger();
 });
@@ -140,12 +140,12 @@ function trigger() {
               var timerFunc = setInterval(function() { message(timer); }, 1000);
 
               var clickEventType2 = document.ontouchstart !== null ? "click" : "touchstart";
-              $(".save").on(clickEventType2, function() {
+              $(".save").one(clickEventType2, function() {
                 didClick = true;
                 return saveImage();
               });
               var clickEventType3 = document.ontouchstart !== null ? "click" : "touchstart";
-              $(".cancel").on(clickEventType3, function() {
+              $(".cancel").one(clickEventType3, function() {
                 didCancel=true;
                 return cancel(message1);
               });
