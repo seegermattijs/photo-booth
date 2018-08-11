@@ -137,10 +137,10 @@ button {
     box-shadow: none;
 }
 .qr {
-    width: 140px!important;
+    width: 160px!important;
     position: absolute!important;
     left: 20px;
-    bottom: 35px;
+    bottom: 40px;
     z-index: 1;
     background: none!important;
 }
