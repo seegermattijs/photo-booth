@@ -168,12 +168,15 @@ function trigger() {
                   // webApp.sendNewPhoto(message2);  // send image to connected web clients
                   setTimeout(function() {
                     utils.prependImage(message1);     // add image to collage
-                  }, 500);
+                  }, 100);
                   $('.save-buttons').fadeOut(250);
                   $('#prompt').fadeOut(250);
                   $( ".save" ).off('click');
                 }
-                // location.reload();
+                setTimeout(function() {
+                  location.reload();
+                }, 200);
+                
               }
 
             } else {
