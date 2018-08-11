@@ -57,7 +57,7 @@ camera.initialize(function( res, msg, err) {
  * Trigger photo when clicking / touching anywhere at the screen
  */
 var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
-$(".take-picture").one(clickEventType, function() {
+$(".take-picture").off(clickEventType).on(clickEventType, function() {
   window.scroll(0, 0);
   trigger();
 });
@@ -139,13 +139,13 @@ function trigger() {
               }
               var timerFunc = setInterval(function() { message(timer); }, 1000);
 
-              var clickEventType2 = document.ontouchstart !== null ? "click" : "touchstart";
-              $(".save").one(clickEventType2, function() {
+              var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
+              $(".save").off(clickEventType).on(clickEventType, function() {
                 didClick = true;
                 return saveImage();
               });
-              var clickEventType3 = document.ontouchstart !== null ? "click" : "touchstart";
-              $(".cancel").one(clickEventType3, function() {
+              var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
+              $(".cancel").off(clickEventType).on(clickEventType, function() {
                 didCancel=true;
                 return cancel(message1);
               });
