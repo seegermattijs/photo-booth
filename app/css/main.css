@@ -87,7 +87,7 @@ button {
 	position:absolute;
 	display: block;
     width: 100%;
-    padding: 2.5vw;
+    padding: 3.5vw;
     background-color: rgba(0,0,0,0.8);
     font-size: 2em;
     bottom: 0;
@@ -258,17 +258,12 @@ button {
     height: 100%;
 
     z-index: 10000;
-    background-size: cover;
+    background-size: 1430px 880px;
     background-repeat: no-repeat;
 
 	animation: fadein 0.5s;
 	animation-timing-function: ease-in;
 }
-#prompt #preview img {
-    max-height: 100vh;
-    width: auto;
-}
-
 #prompt.fadeout {
 	animation: fadeout 0.5s;
 	animation-timing-function: ease-out;
