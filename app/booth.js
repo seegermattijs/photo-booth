@@ -142,6 +142,7 @@ function trigger() {
               var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
               $(".save").off(clickEventType).on(clickEventType, function() {
                 didClick = true;
+                clearInterval(timerFunc);
                 return saveImage();
               });
               var clickEventType = document.ontouchstart !== null ? "click" : "touchstart";
